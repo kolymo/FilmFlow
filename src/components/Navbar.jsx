@@ -15,7 +15,10 @@ export default function Navbar() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        search.title(searchValue).then(data => {
+
+        if (searchValue.trim() === '') return;
+
+        search.all(searchValue).then(data => {
             console.log(data)
         })
     };

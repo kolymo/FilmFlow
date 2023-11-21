@@ -1,13 +1,11 @@
 export default async function FetchData(options) {
 
-    let url = "https://api.themoviedb.org/3/";
-
     if (!('endpoints' in options)) {
         return null;
     }
 
-    const endpoints = options.endpoints.join('/');
-    url += endpoints;
+    let url = "https://api.themoviedb.org/3/";
+    url += options.endpoints.join('/');
 
     const apiKey = "9e3314fb4fe8b26b5bb0f1860ef47fbd";
     url += '?api_key=' + apiKey;
@@ -76,13 +74,13 @@ export const films = {
         return FetchData({ endpoints: ["movie", movie_id, "videos"], language: language });
     },
     credits: (movie_id, language = 'en-CA') => {
-        // Movie Credits (Actors) => https://api.themoviedb.org/3/movie/movie_id/credits?language=en-US
+        // Movie Credits (Actors / Cast list) => https://api.themoviedb.org/3/movie/movie_id/credits?language=en-US
         return FetchData({ endpoints: ["movie", movie_id, "credits"], language: language });
     }
 };
 
 export const search = {
-    title: (query, language = 'en-CA', page = 1) => {
+    title: (query, page = 1, language = 'en-CA') => {
         // Title Search => https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1
         return FetchData({ 
             endpoints: ["search", "movie"],
@@ -94,9 +92,20 @@ export const search = {
             }
         });
     },
-    // TODO
-    actors: (input) => {},
-    all: (input) => {},
+    actors: (query, page = 1) => {
+        // Actors Search => https://api.themoviedb.org/3/search/person?api_key=THE_KEY&query=Jim+Carrey
+        return FetchData({ 
+            endpoints: ["search", "person"],
+            params: {
+                'query': query,
+                'language': false,
+                'page': page
+            }
+        });
+    },
+    all: async (query, page = 1) => {
+        return { titles: await search.title(query, page), actors: await search.actors(query, page) };
+    }
 };
 
 

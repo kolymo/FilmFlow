@@ -27,8 +27,6 @@ export default async function FetchData(options) {
         }
     }
 
-    console.log(url)
-
     try {
         const response = await fetch(url);
         
@@ -84,7 +82,6 @@ export const films = {
 };
 
 export const search = {
-    // TODO:
     title: (query, language = 'en-CA', page = 1) => {
         // Title Search => https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1
         return FetchData({ 
@@ -97,21 +94,14 @@ export const search = {
             }
         });
     },
+    // TODO
     actors: (input) => {},
     all: (input) => {},
 };
 
-search.title('Star Wars')
-    .then(data => {
-        console.log(data)
-    })
-
-
-
 
 /*
 
-Title Search => https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1
 Actors details => https://api.themoviedb.org/3/person/person_id?language=en-US
 
 */

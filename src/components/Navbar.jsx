@@ -6,18 +6,22 @@ import {
     Route,
     Navigate,
 } from "react-router-dom";
+import { search } from '../services/FetchData';
+
 
 export default function Navbar() {
     let activeClassName = "text-blue-500";
-    const [search, setSearch] = useState("");
+    const [searchValue, setSearchValue] = useState("");
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(search);
+        search.title(searchValue).then(data => {
+            console.log(data)
+        })
     };
 
     const handleSearchChange = (event) => {
-        setSearch(event.target.value);
+        setSearchValue(event.target.value);
     };
 
     return (
@@ -44,7 +48,7 @@ export default function Navbar() {
                         type="text"
                         placeholder="Search"
                         className="px-2 py-1 rounded"
-                        value={search}
+                        value={searchValue}
                         onChange={handleSearchChange}
                     />
                 </form>

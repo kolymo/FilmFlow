@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import Movies from "./pages/Movies";
 import Categories from "./pages/Categories";
 import Error from "./pages/Error";
-import FetchData from "./services/FetchData";
+//import FetchData from "./services/FetchData";
 import {
     BrowserRouter as Router,
     NavLink,

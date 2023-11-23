@@ -17,15 +17,16 @@ const SearchResults = () => {
                     Results for "{query}"
                 </h1>
                 <br />
-                <div className="grid grid-cols-5 gap-16 mt-4">
+                <div className="grid grid-cols-5 gap-12 mt-4">
                     {results.titles.map((result) => (
-                        <div className="hover:cursor-pointer">
+                        <div 
+                            className="flex items-center justify-center flex-col bg-slate-50 hover:bg-blue-500 transition-all rounded-2xl px-4 hover:cursor-pointer"
+                            onClick={() => handleClick(result.id)}>
                             <img
                                 src={`https://image.tmdb.org/t/p/w500${result.poster_path}`}
                                 alt=""
-                                onClick={() => handleClick(result.id)}
                             />
-                            <h3 className="text-white text-2xl text-center">{result.title}</h3>
+                            <h3 className="text-black text-2xl text-center">{result.title}</h3>
                         </div>
                     ))}
                 </div>

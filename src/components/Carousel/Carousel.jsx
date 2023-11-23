@@ -75,7 +75,7 @@ const Carousel = (props) => {
 
     return (
         <div>
-            <Slider {...settings} >
+            <Slider {...settings} className=''>
                 {movies.map((movie) => (
                     <div key={movie.id} className="hover:cursor-pointer">
                         <img

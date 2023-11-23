@@ -1,11 +1,14 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const SearchResults = () => {
     const location = useLocation();
     const { results, query } = location.state || { results: [], query: "" };
 
-    //console.log(results);
+    const navigate = useNavigate();
+    const handleClick = (id) => {
+        navigate('/movie-details', { state: { id } });
+    }
 
     return (
         <main className="container m-auto">
@@ -16,14 +19,13 @@ const SearchResults = () => {
                 <br />
                 <div className="grid grid-cols-5 gap-16 mt-4">
                     {results.titles.map((result) => (
-                        <div className="">
-                            <a href={`https://www.themoviedb.org/movie/${result.id}`}>
-                                <img
-                                    src={`https://image.tmdb.org/t/p/w500${result.poster_path}`}
-                                    alt=""
-                                />
-                                {result.title}
-                            </a>
+                        <div className="hover:cursor-pointer">
+                            <img
+                                src={`https://image.tmdb.org/t/p/w500${result.poster_path}`}
+                                alt=""
+                                onClick={() => handleClick(result.id)}
+                            />
+                            <h3 className="text-white text-2xl text-center">{result.title}</h3>
                         </div>
                     ))}
                 </div>

@@ -44,9 +44,11 @@ export default async function FetchData(options) {
     }
 }
 
+
+// Put all the films inside 
 export const films = {
     popular: (page = 1, language = 'en-CA') => {
-        // https://api.themoviedb.org/3/movie/popular?language=en-US&page=1
+        // Popular => https://api.themoviedb.org/3/movie/popular?language=en-US&page=1
         return FetchData({ endpoints: ["movie", "popular"], language: language, page: page });
     },
     toprated: (page = 1, language = 'en-CA') => {
@@ -62,7 +64,7 @@ export const films = {
         return FetchData({ endpoints: ["trending", "movie", time], language: language, page: page });
     },
     details: (movie_id, language = 'en-CA') => {
-        // https://api.themoviedb.org/3/movie/movie_id?language=en-US
+        // Details => https://api.themoviedb.org/3/movie/movie_id?language=en-US
         return FetchData({ endpoints: ["movie", movie_id], language: language });
     },
     images: (movie_id) => {

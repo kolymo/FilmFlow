@@ -6,26 +6,11 @@ import {
     Route,
     Navigate,
 } from "react-router-dom";
-import { search } from '../services/FetchData';
+import SearchBar from "./SearchBar";
 
 
 export default function Navbar() {
     let activeClassName = "text-blue-500";
-    const [searchValue, setSearchValue] = useState("");
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-
-        if (searchValue.trim() === '') return;
-
-        search.all(searchValue).then(data => {
-            console.log(data)
-        })
-    };
-
-    const handleSearchChange = (event) => {
-        setSearchValue(event.target.value);
-    };
 
     return (
         <header className="w-full bg-slate-700">
@@ -42,19 +27,7 @@ export default function Navbar() {
                         <NavLink to="categories" className={({ isActive }) => `hover:text-red-500 ${isActive ? activeClassName : ''}`}>Categories</NavLink>
                     </li>
                 </ul>
-                <form
-                    onSubmit={handleSubmit}
-                    className="inline-block text-black"
-                >
-                    <i className="fas fa-search text-gray-400 mr-2" />
-                    <input
-                        type="text"
-                        placeholder="Search"
-                        className="px-2 py-1 rounded"
-                        value={searchValue}
-                        onChange={handleSearchChange}
-                    />
-                </form>
+                <SearchBar />
             </nav>
         </header>
     );

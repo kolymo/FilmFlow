@@ -12,7 +12,7 @@ export default function SearchBar() {
         if (searchValue.trim() == "") return;
 
         search.all(searchValue).then((data) => {
-            const results = data.results;
+            const results = data;
             const query = searchValue;
             navigate('/search-results', { state: { results, query } });
         });

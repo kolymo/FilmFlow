@@ -34,6 +34,7 @@ export default async function FetchData(options) {
         const data = await response.json();
 
         return data;
+
     } catch (error) {
         console.error("Error fetching data:", error);
 
@@ -108,7 +109,7 @@ export const films = {
 export const search = {
     title: async (query, page = 1, language = "en-CA") => {
         // Title Search => https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1
-        const values = await FetchData({
+        const data = await FetchData({
             endpoints: ["search", "movie"],
             params: {
                 query: query,
@@ -117,12 +118,16 @@ export const search = {
                 page: page,
             },
         });
-        console.log(values);
+
+        const values = Object.values(data.results).filter(obj => {
+            return !Object.values(obj).some(value => value === null);
+        });
+
         return values;
     },
-    actors: (query, page = 1) => {
+    actors: async (query, page = 1) => {
         // Actors Search => https://api.themoviedb.org/3/search/person?api_key=THE_KEY&query=Jim+Carrey
-        return FetchData({
+        const data = await FetchData({
             endpoints: ["search", "person"],
             params: {
                 query: query,
@@ -130,13 +135,15 @@ export const search = {
                 page: page,
             },
         });
+
+        return data['results'];
     },
     all: async (query, page = 1) => {
         return {
             titles: await search.title(query, page),
             actors: await search.actors(query, page),
         };
-    },
+    }
 };
 
 /*

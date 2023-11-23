@@ -9,7 +9,7 @@ export default function SearchBar() {
     const handleSearch = (event) => {
         event.preventDefault();
 
-        if (searchValue.trim() == "") return;
+        if (searchValue === "") return;
 
         search.all(searchValue).then((data) => {
             const results = data;
@@ -25,7 +25,7 @@ export default function SearchBar() {
                 type="text"
                 placeholder="Search"
                 className="px-2 py-1 rounded"
-                value={searchValue}
+                value={searchValue.trim()}
                 onChange={(e) => setSearchValue(e.target.value)}
             />
         </form>

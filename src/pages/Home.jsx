@@ -33,7 +33,7 @@ export default function Home() {
 
     return (
         <main className="container mx-auto my-4">
-            <Carousel movies={movies.popular} options={{ settings: {slidesToShow: 5}, image: {type: 'poster'}}} />
+            <Carousel movies={movies.popular} options={{ settings: {slidesToShow: 5}, image: {type: 'poster', width: 'w500'}}} />
         </main>
     );
 }

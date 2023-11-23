@@ -3,6 +3,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import './Carousel.css';
+import { useNavigate } from 'react-router-dom';
 
 const CustomPrevArrow = (props) => {
     return (
@@ -22,10 +23,16 @@ const CustomNextArrow = (props) => {
 
 const Carousel = (props) => {
     const [movies, setMovies] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         setMovies(props.movies);
     }, [props.movies]);
+
+
+    const handleClick = (id) => {
+        navigate('/movie-details', { state: { id } });
+    }
 
     const settings = {
         dots: true,
@@ -70,15 +77,15 @@ const Carousel = (props) => {
         <div>
             <Slider {...settings} >
                 {movies.map((movie) => (
-                    <div key={movie.id}>
-                        <a href={`https://www.themoviedb.org/movie/${movie.id}`}>
-                            <img
-                            src={`https://image.tmdb.org/t/p/w500${
-                                props.options.image.type == 'poster' ?
-                                movie.poster_path : movie.backdrop_path
-                            }`} 
-                            alt={movie.title} />
-                        </a>
+                    <div key={movie.id} className="hover:cursor-pointer">
+                        <img
+                        src={`https://image.tmdb.org/t/p/${props.options.image.width}${
+                            props.options.image.type == 'poster' ?
+                            movie.poster_path : movie.backdrop_path
+                        }`} 
+                        alt={movie.title}
+                        onClick={() => handleClick(movie.id)} />
+                        
                     </div>
                 ))}
             </Slider>

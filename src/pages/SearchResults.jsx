@@ -25,6 +25,7 @@ const SearchResults = () => {
                             <img
                                 src={`https://image.tmdb.org/t/p/w500${result.poster_path}`}
                                 alt=""
+                                className="pt-4"
                             />
                             <h3 className="text-black text-2xl text-center">{result.title}</h3>
                         </div>

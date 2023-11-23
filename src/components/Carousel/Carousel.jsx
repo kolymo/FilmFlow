@@ -68,9 +68,12 @@ const Carousel = (props) => {
                 swipeToSlide: true,
               }
             }
-          ],
-          prevArrow: <CustomPrevArrow />,
-          nextArrow: <CustomNextArrow />,
+          ]
+    }
+
+    if (props.options.settings.showArrows === true) {
+        settings.prevArrow = <CustomPrevArrow />;
+        settings.nextArrow = <CustomNextArrow />;
     }
 
     return (

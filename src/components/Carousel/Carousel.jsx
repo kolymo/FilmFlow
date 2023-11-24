@@ -22,8 +22,8 @@ const CustomNextArrow = (props) => {
 }
 
 const Carousel = (props) => {
-    const [movies, setMovies] = useState([]);
     const navigate = useNavigate();
+    const [movies, setMovies] = useState([]);
 
     useEffect(() => {
         setMovies(props.movies);
@@ -35,12 +35,14 @@ const Carousel = (props) => {
     }
 
     const settings = {
-        dots: true,
+        dots: props.options.settings.dots,
+        arrows: props.options.settings.arrows,
+        autoplay: props.options.settings.autoplay,
         infinite: true,
         centerMode: true,
         lazyLoad: false,
         speed: 420,
-        slidesToShow: props.options.settings.slidesToShow || 5,
+        slidesToShow: props.options.settings.slidesToShow,
         slidesToScroll: 1,
         responsive: [
             {
@@ -68,12 +70,9 @@ const Carousel = (props) => {
                 swipeToSlide: true,
               }
             }
-          ]
-    }
-
-    if (props.options.settings.showArrows === true) {
-        settings.prevArrow = <CustomPrevArrow />;
-        settings.nextArrow = <CustomNextArrow />;
+          ],
+        prevArrow: <CustomPrevArrow />,
+        nextArrow: <CustomNextArrow />
     }
 
     return (

@@ -40,6 +40,7 @@ const Carousel = (props) => {
         autoplay: props.options.settings.autoplay,
         infinite: true,
         centerMode: true,
+        adaptiveHeight: false,
         lazyLoad: false,
         speed: 420,
         slidesToShow: props.options.settings.slidesToShow,

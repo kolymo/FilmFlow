@@ -32,8 +32,8 @@ export default function Home() {
     
 
     return (
-        <main className="container mx-auto my-4">
-            <Carousel movies={movies.popular} options={{ settings: {slidesToShow: 5, arrows: false, autoplay: true, dots: false}, image: {type: 'poster', width: 'w500'}}} />
+        <main className="h-screen">
+            <Carousel movies={movies.popular} options={{ settings: {slidesToShow: 5, arrows: false, autoplay: true, dots: false}, image: {type: 'backdrop', width: 'w500'}}} />
         </main>
     );
 }

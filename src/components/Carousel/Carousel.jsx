@@ -45,6 +45,7 @@ const Carousel = (props) => {
         speed: 420,
         slidesToShow: props.options.settings.slidesToShow,
         slidesToScroll: 1,
+        variableWidth: props.options.settings.variableWidth,
         responsive: [
             {
               breakpoint: 1024,
@@ -78,7 +79,7 @@ const Carousel = (props) => {
 
     return (
         <div>
-            <Slider {...settings} className=''>
+            <Slider {...settings}>
                 {movies.map((movie) => (
                     <div key={movie.id} className="hover:cursor-pointer">
                         <img

@@ -40,9 +40,9 @@ const Carousel = (props) => {
         autoplay: props.options.settings.autoplay,
         infinite: true,
         centerMode: true,
-        adaptiveHeight: false,
+        adaptiveHeight: true,
         lazyLoad: false,
-        speed: 420,
+        speed: 1,
         slidesToShow: props.options.settings.slidesToShow,
         slidesToScroll: 1,
         variableWidth: props.options.settings.variableWidth,
@@ -81,15 +81,18 @@ const Carousel = (props) => {
         <div>
             <Slider {...settings}>
                 {movies.map((movie) => (
-                    <div key={movie.id} className="hover:cursor-pointer">
-                        <img
-                        src={`https://image.tmdb.org/t/p/${props.options.image.width}${
-                            props.options.image.type == 'poster' ?
-                            movie.poster_path : movie.backdrop_path
-                        }`} 
-                        alt={movie.title}
-                        onClick={() => handleClick(movie.id)} />
-                        
+                    <div key={movie.id} className="flex items-center justify-center hover:cursor-pointer">
+                        <div className='flex items-center justify-center px-20 relative'>
+                            <h1 className='text-9xl font-bold text-white z-10 absolute border px-2'>{movie.title}</h1>
+                            <img
+                            src={`https://image.tmdb.org/t/p/${props.options.image.width}${
+                                props.options.image.type == 'poster' ?
+                                movie.poster_path : movie.backdrop_path
+                            }`} 
+                            alt={movie.title}
+                            onClick={() => handleClick(movie.id)}
+                            className='mx-auto h-screen z-0' />
+                        </div>
                     </div>
                 ))}
             </Slider>

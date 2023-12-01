@@ -32,8 +32,8 @@ export default function Home() {
     
 
     return (
-        <main className="h-screen">
-            <Carousel movies={movies.popular} options={{ settings: {slidesToShow: 5, arrows: false, autoplay: true, dots: false}, image: {type: 'backdrop', width: 'w500'}}} />
+        <main>
+            <Carousel movies={movies.popular} options={{ settings: {slidesToShow: 1, arrows: false, autoplay: true, dots: false, variableWidth: true}, image: {type: 'backdrop', width: 'original'}}} />
         </main>
     );
 }

@@ -58,27 +58,27 @@ export default function Categories() {
     return (
         <main className="container mx-auto py-4">
             <div>
-                <h1 className="text-white text-3xl py-2">Action</h1>
+                <h1 className="text-white text-3xl my-2 px-2 py-1 bg-slate-700 inline-block rounded">Action</h1>
                 <Carousel movies={movies.action} options={{ settings: {slidesToShow: 5, arrows: true, autoplay: false, dots: false, variableWidth: true}, image: {type: 'poster', width: 'w500'}}} />
             </div>
             <div>
-                <h1 className="text-white text-3xl py-2">Comedy</h1>
+                <h1 className="text-white text-3xl my-2 px-2 py-1 bg-slate-700 inline-block rounded">Comedy</h1>
                 <Carousel movies={movies.comedy} options={{ settings: {slidesToShow: 5, arrows: true, autoplay: false, dots: false, variableWidth: true}, image: {type: 'poster', width: 'w500'}}} />
             </div>
             <div>
-                <h1 className="text-white text-3xl py-2">Drama</h1>
+                <h1 className="text-white text-3xl my-2 px-2 py-1 bg-slate-700 inline-block rounded">Drama</h1>
                 <Carousel movies={movies.drama} options={{ settings: {slidesToShow: 5, arrows: true, autoplay: false, dots: false, variableWidth: true}, image: {type: 'poster', width: 'w500'}}} />
             </div>
             <div>
-                <h1 className="text-white text-3xl py-2">Science-Fiction</h1>
+                <h1 className="text-white text-3xl my-2 px-2 py-1 bg-slate-700 inline-block rounded">Science-Fiction</h1>
                 <Carousel movies={movies.scifi} options={{ settings: {slidesToShow: 5, arrows: true, autoplay: false, dots: false, variableWidth: true}, image: {type: 'poster', width: 'w500'}}} />
             </div>
             <div>
-                <h1 className="text-white text-3xl py-2">Horror</h1>
+                <h1 className="text-white text-3xl my-2 px-2 py-1 bg-slate-700 inline-block rounded">Horror</h1>
                 <Carousel movies={movies.horror} options={{ settings: {slidesToShow: 5, arrows: true, autoplay: false, dots: false, variableWidth: true}, image: {type: 'poster', width: 'w500'}}} />
             </div>
             <div>
-                <h1 className="text-white text-3xl py-2">Fantasy</h1>
+                <h1 className="text-white text-3xl my-2 px-2 py-1 bg-slate-700 inline-block rounded">Fantasy</h1>
                 <Carousel movies={movies.fantasy} options={{ settings: {slidesToShow: 5, arrows: true, autoplay: false, dots: false, variableWidth: true}, image: {type: 'poster', width: 'w500'}}} />
             </div>
         </main>

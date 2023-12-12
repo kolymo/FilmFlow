@@ -24,6 +24,9 @@ export default async function FetchData(options) {
         }
     }
 
+    if ("genre" in options) url += "&with_genres=" + options.genre;
+    console.log(url)
+
     try {
         const response = await fetch(url);
 
@@ -105,7 +108,16 @@ export const films = {
             language: language,
         });
     },
-};
+    genres: (genre, page = 1, language = "en-CA") => {
+        // https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=action
+        return FetchData({
+            endpoints: ["discover", "movie"],
+            genre: genre,
+            page: page,
+            language: language,
+        });
+    }
+}
 
 export const search = {
     title: async (query, page = 1, language = "en-CA") => {

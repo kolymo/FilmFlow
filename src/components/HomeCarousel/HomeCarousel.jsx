@@ -93,7 +93,7 @@ const HomeCarousel = (props) => {
                             }`} 
                             alt={movie.title}
                             onClick={() => handleClick(movie.id)}
-                            className='mx-auto w-screen z-0' />
+                            className='mx-auto h-screen z-0' />
                         </div>
                     </div>
                 ))}

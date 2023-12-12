@@ -42,6 +42,7 @@ export default async function FetchData(options) {
     }
 }
 
+
 // Put all the films inside
 export const films = {
     popular: (page = 1, language = "en-CA") => {

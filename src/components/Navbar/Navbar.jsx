@@ -21,10 +21,10 @@ export default function Navbar() {
                         <NavLink to="" className={({ isActive }) => `hover:text-red-500 ${isActive ? activeClassName : ''}`}>Home</NavLink>
                     </li>
                     <li className="mx-4">
-                        <NavLink to="movies" className={({ isActive }) => `hover:text-red-500 ${isActive ? activeClassName : ''}`}>Movies</NavLink>
+                        <NavLink to="categories" className={({ isActive }) => `hover:text-red-500 ${isActive ? activeClassName : ''}`}>Categories</NavLink>
                     </li>
                     <li className="mx-4">
-                        <NavLink to="categories" className={({ isActive }) => `hover:text-red-500 ${isActive ? activeClassName : ''}`}>Categories</NavLink>
+                        <NavLink to="about" className={({ isActive }) => `hover:text-red-500 ${isActive ? activeClassName : ''}`}>About</NavLink>
                     </li>
                 </ul>
                 <SearchBar />

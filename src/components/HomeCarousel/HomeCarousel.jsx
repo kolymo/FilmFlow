@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import './Carousel.css';
+import './HomeCarousel.css';
 import { useNavigate } from 'react-router-dom';
 
 const CustomPrevArrow = (props) => {
@@ -21,7 +21,7 @@ const CustomNextArrow = (props) => {
     )
 }
 
-const Carousel = (props) => {
+const HomeCarousel = (props) => {
     const navigate = useNavigate();
     const [movies, setMovies] = useState([]);
 
@@ -82,14 +82,19 @@ const Carousel = (props) => {
             <Slider {...settings}>
                 {movies.map((movie) => (
                     <div key={movie.id} className="flex items-center justify-center hover:cursor-pointer">
-                        <img
-                         src={`https://image.tmdb.org/t/p/${props.options.image.width}${
-                            props.options.image.type == 'poster' ?
-                            movie.poster_path : movie.backdrop_path
-                        }`} 
-                        alt={movie.title}
-                        onClick={() => handleClick(movie.id)}
-                        className='mx-auto h-96' />
+                        <div className='flex items-center justify-center px-20 relative'>
+                            <div className="container">
+                                <h1 className='text-9xl font-bold text-white z-10 absolute border px-2'>{movie.title}</h1><h1 className='text-9xl font-bold text-white z-10 absolute border px-2'>{movie.title}</h1>
+                            </div>
+                            <img
+                            src={`https://image.tmdb.org/t/p/${props.options.image.width}${
+                                props.options.image.type == 'poster' ?
+                                movie.poster_path : movie.backdrop_path
+                            }`} 
+                            alt={movie.title}
+                            onClick={() => handleClick(movie.id)}
+                            className='mx-auto w-screen z-0' />
+                        </div>
                     </div>
                 ))}
             </Slider>
@@ -99,4 +104,4 @@ const Carousel = (props) => {
 }
 
 
-export default Carousel
+export default HomeCarousel

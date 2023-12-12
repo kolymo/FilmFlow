@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import HomeCarousel from "../components/HomeCarousel/HomeCarousel";
 import Carousel from "../components/Carousel/Carousel";
 import { films } from "../services/FetchData";
 
@@ -33,7 +34,7 @@ export default function Home() {
 
     return (
         <main>
-            <Carousel movies={movies.popular} options={{ settings: {slidesToShow: 1, arrows: false, autoplay: true, dots: false, variableWidth: true}, image: {type: 'backdrop', width: 'original'}}} />
+            <HomeCarousel movies={movies.trending} options={{ settings: {slidesToShow: 1, arrows: false, autoplay: true, dots: false, variableWidth: true}, image: {type: 'backdrop', width: 'original'}}} />
         </main>
     );
 }

@@ -3,7 +3,7 @@ import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import Movies from "./pages/Movies";
+import About from "./pages/About";
 import Categories from "./pages/Categories";
 import Error from "./pages/Error";
 import Loading from "./components/Loading/Loading";
@@ -26,7 +26,7 @@ export default function App() {
 
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="Movies" element={<Movies />} />
+                    <Route path="About" element={<About />} />
                     <Route path="Categories" element={<Categories />} />
                     <Route path="/search-results" element={<SearchResults />} />
                     <Route path="/movie-details" element={<MovieDetails />} />

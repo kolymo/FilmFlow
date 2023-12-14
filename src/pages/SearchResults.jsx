@@ -21,7 +21,7 @@ const SearchResults = () => {
                 <h1 className="text-white text-5xl font-semibold py-4">
                     Results for "{query}"
                 </h1>
-                <div class="container mx-auto">
+                <div className="container mx-auto">
                     <h1 className="text-white text-3xl py-2">Movies</h1>
                     <Carousel movies={results.titles} options={{ settings: {slidesToShow: 5, arrows: true, autoplay: false, dots: false, variableWidth: false}, image: {type: 'poster', width: 'w500'}}} />
                     {/* 

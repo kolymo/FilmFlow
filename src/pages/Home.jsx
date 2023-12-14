@@ -27,9 +27,9 @@ export default function Home() {
     }, []);
 
 
-    useEffect(() => {
+    /* useEffect(() => {
         console.log(movies);
-    }, [movies]);
+    }, [movies]); */
     
 
     return (

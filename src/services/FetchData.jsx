@@ -1,4 +1,4 @@
-export default async function FetchData(options) {
+async function FetchData(options) {
     if (!("endpoints" in options)) {
         return null;
     }
@@ -118,6 +118,27 @@ export const films = {
         });
     }
 }
+
+/* export const actors = {
+    details: async (query, page = 1, language = "en-CA") => {
+        // Title Search => https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1
+        const data = await FetchData({
+            endpoints: ["search", "movie"],
+            params: {
+                query: query,
+                include_adult: true,
+                language: language,
+                page: page,
+            },
+        });
+
+        const values = Object.values(data.results).filter(obj => {
+            return !Object.values(obj).some(value => value === null);
+        });
+
+        return values;
+    }
+}; */
 
 export const search = {
     title: async (query, page = 1, language = "en-CA") => {

@@ -57,6 +57,7 @@ export default function Categories() {
 
     return (
         <main className="container mx-auto py-4">
+            <p>adsasdd</p>
             <div>
                 <h1 className="text-white text-3xl my-2 px-2 py-1 bg-slate-700 inline-block rounded">Action</h1>
                 <Carousel movies={movies.action} options={{ settings: {slidesToShow: 5, arrows: true, autoplay: false, dots: false, variableWidth: true}, image: {type: 'poster', width: 'w500'}}} />

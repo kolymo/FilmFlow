@@ -8,7 +8,7 @@ import Categories from "./pages/Categories";
 import Error from "./pages/Error";
 import Loading from "./components/Loading/Loading";
 import SearchResults from "./pages/SearchResults";
-import MovieDetails from "./pages/MovieDetails";
+import MovieDetails from "./pages/MovieDetails/MovieDetails";
 import {
     BrowserRouter as Router,
     NavLink,

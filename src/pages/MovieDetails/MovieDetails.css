@@ -1,0 +1,238 @@
+/* Default styles for larger screens */
+
+.backdrop {
+  width: 100%;
+  height: 100%;
+  filter: blur(4.3px) brightness(0.5);
+  object-position: top;
+}
+
+.container2 {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  filter: blur();
+  margin-top: -50%;
+  margin-left: 5%;
+}
+
+.Affiche {
+  width: 25%;
+  height: 20%;
+}
+
+.im-film {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.detail {
+  max-width: 60%;
+  margin-left: 30%;
+  bottom: 0;
+  position: fixed;
+}
+
+.actors-container {
+  padding-left: 5%;
+  margin: 20% 0 5% 0;
+}
+
+.ul-actor {
+  display: flex;
+}
+
+.li-actor {
+  background-color: #FF5733; /* Replace with actual color */
+  margin: 5px;
+  max-width: 200px;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.imgs-actors {
+  width: 100%;
+}
+
+.actors_names {
+  color: #007ACC; /* Replace with actual color */
+  font-size: 20px;
+  padding: 5px;
+}
+
+.title_movie {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 60px;
+  color: rgb(255, 255, 255);
+}
+
+.date,
+.synopsis,
+.temps,
+.vote,
+.genre {
+  font-size: 20px;
+  color: #1E8449; /* Replace with actual color */
+}
+
+.realease_date,
+.movie_overwiew,
+.vote_count {
+  color: white;
+  font-size: 20px;
+}
+
+.synopsis {
+  margin-top: 30px;
+}
+
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  outline: none;
+  margin-top: 30px;
+}
+
+.btn-3 {
+  background: #FF5733; /* Replace with actual color */
+  background: linear-gradient(0deg, #FF5733 10%, #007ACC 100%); /* Replace with actual colors */
+  width: 130px;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+}
+
+.btn-3 span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.btn-3:before,
+.btn-3:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+  background: #1E8449; /* Replace with actual color */
+  transition: all 0.3s ease;
+}
+
+.btn-3:before {
+  height: 0%;
+  width: 2px;
+}
+
+.btn-3:after {
+  width: 0%;
+  height: 2px;
+}
+
+.btn-3:hover {
+  background: transparent;
+  box-shadow: none;
+}
+
+.btn-3:hover:before {
+  height: 100%;
+}
+
+.btn-3:hover:after {
+  width: 100%;
+}
+
+.btn-3 span:hover {
+  color: #1E8449; /* Replace with actual color */
+}
+
+.btn-3 span:before,
+.btn-3 span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  background: #1E8449; /* Replace with actual color */
+  transition: all 0.3s ease;
+}
+
+.btn-3 span:before {
+  width: 2px;
+  height: 0%;
+}
+
+.btn-3 span:after {
+  width: 0%;
+  height: 2px;
+}
+
+.btn-3 span:hover:before {
+  height: 100%;
+}
+
+.btn-3 span:hover:after {
+  width: 100%;
+}
+
+@media (max-width: 400px) {
+  .backdrop {
+    width: 100%;
+    height: 100%;
+    filter: blur() brightness();
+    object-position: top;
+  }
+  .im-film {
+    width: 100%;
+    border-radius: 10px;
+  }
+  .Affiche {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  .container {
+    flex-direction: column;
+    margin-left: 0;
+    margin-top: 0;
+  }
+  .date,
+  .synopsis,
+  .temps,
+  .vote,
+  .genre {
+    font-size: 20px;
+    color: #007ACC; /* Replace with actual color */
+    margin-left: 10px;
+  }
+
+  .detail {
+    max-width: 100%;
+    margin-left: 0;
+    position: static;
+  }
+
+  .title_movie {
+    font-size: 40px;
+    color: #007ACC; /* Replace with actual color */
+    text-align: center;
+  }
+  .realease_date,
+  .movie_overwiew,
+  .vote_count {
+    color: #007ACC; /* Replace with actual color */
+    font-size: 16px;
+  }
+}

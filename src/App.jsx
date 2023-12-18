@@ -9,6 +9,7 @@ import Error from "./pages/Error";
 import Loading from "./components/Loading/Loading";
 import SearchResults from "./pages/SearchResults";
 import MovieDetails from "./pages/MovieDetails/MovieDetails";
+import ActorDetails from "./pages/ActorDetails/ActorDetails";
 import {
     BrowserRouter as Router,
     NavLink,
@@ -26,10 +27,11 @@ export default function App() {
 
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="About" element={<About />} />
-                    <Route path="Categories" element={<Categories />} />
-                    <Route path="/search-results" element={<SearchResults />} />
-                    <Route path="/movie-details" element={<MovieDetails />} />
+                    <Route path="about" element={<About />} />
+                    <Route path="categories" element={<Categories />} />
+                    <Route path="search-results" element={<SearchResults />} />
+                    <Route path="movie-details" element={<MovieDetails />} />
+                    <Route path="actor-details" element={<ActorDetails />} />
                     <Route path="*" element={<Error />} />
                 </Routes>
 

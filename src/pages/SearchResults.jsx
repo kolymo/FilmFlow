@@ -6,9 +6,9 @@ const SearchResults = () => {
     const location = useLocation();
     const { results, query } = location.state || { results: [], query: "" };
 
-    useEffect(() => {
+    /* useEffect(() => {
         console.log(results);
-    }, [])
+    }, []) */
 
     const navigate = useNavigate();
     const handleClick = (id) => {

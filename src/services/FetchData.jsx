@@ -16,16 +16,18 @@ async function FetchData(options) {
 
     if ("page" in options) url += "&page=" + options.page;
 
-    if ("params" in options && options.params.query !== null) {
+    if ("params" in options && options.params.query != null) {
         url += "&query=" + encodeURIComponent(options.params.query);
 
-        if (options.params.include_adult !== null) {
+        if (options.params.include_adult != null) {
             url += "&include_adult=" + options.params.include_adult;
         }
     }
 
     if ("genre" in options) url += "&with_genres=" + options.genre;
-    console.log(url)
+
+    // Debug
+    console.log(url);
 
     try {
         const response = await fetch(url);
@@ -119,8 +121,19 @@ export const films = {
     }
 }
 
-/* export const actors = {
-    details: async (query, page = 1, language = "en-CA") => {
+export const actors = {
+    details: async (actor_id, language = "en-CA") => {
+        // Actors Details => https://api.themoviedb.org/3/person/person_id?language=en-US
+        const data = await FetchData({
+            endpoints: ["person", actor_id],
+            params: {
+                language: language,
+            },
+        });
+
+        return data;
+    },
+    /* details: async (query, page = 1, language = "en-CA") => {
         // Title Search => https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1
         const data = await FetchData({
             endpoints: ["search", "movie"],
@@ -136,9 +149,9 @@ export const films = {
             return !Object.values(obj).some(value => value === null);
         });
 
-        return values;
-    }
-}; */
+        return data;
+    } */
+};
 
 export const search = {
     title: async (query, page = 1, language = "en-CA") => {

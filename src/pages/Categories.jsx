@@ -51,9 +51,9 @@ export default function Categories() {
         });
     }, []);
 
-    useEffect(() => {
+    /* useEffect(() => {
         console.log(movies);
-    }, [movies])
+    }, [movies]) */
 
     return (
         <main className="container mx-auto py-4">

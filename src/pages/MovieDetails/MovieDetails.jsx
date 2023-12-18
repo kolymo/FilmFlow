@@ -11,6 +11,7 @@ const MovieDetails = () => {
     const [movie, setMovie] = useState([]);
     const [actor, setActor] = useState([]);
 
+    const navigate = useNavigate();
     const location = useLocation();
     const id = location.state.id;
 
@@ -19,38 +20,19 @@ const MovieDetails = () => {
         films.credits(id).then((data) => setActor(data.cast));
     }, [id]);
 
-    useEffect(() => {
-        console.log(actor);
-    }, [actor]);
-
     /* useEffect(() => {
-    const fetchMovieDetail = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/${id}?api_key=6a0bd479dfaa0b7a22956162ac8159dd`
-        );
-        setMovie(response.data);
-
-        const actorResponse = await axios.get(
-          `https://api.themoviedb.org/3/movie/${id}/credits?api_key=6a0bd479dfaa0b7a22956162ac8159dd`
-        );
-        setActor(actorResponse.data.cast);
-      } catch (error) {
-        console.error(
-          "Erreur lors de la récupération des détails du film",
-          error
-        );
-      }
-    };
-
-    fetchMovieDetail();
-  }, [id]); */
+        console.log(actor);
+    }, [actor]); */
 
     function convertirTempsEnHMN(tempsEnMinutes) {
         const heures = Math.floor(tempsEnMinutes / 60);
         const minutes = tempsEnMinutes % 60;
 
         return `${heures}h${minutes}min`;
+    }
+
+    const handleActorClick = (id) => {
+        navigate('/actor-details', { state: { id } });
     }
 
     return (
@@ -119,8 +101,9 @@ const MovieDetails = () => {
             <div className="actors-container">
                 <h2 className="Acteurs">Acteurs:</h2>
                 <ul className="ul-actor">
+                {/* <NavLink to="/" className={({ isActive }) => `hover:text-red-500 ${isActive ? activeClassName : ''}`}>Home</NavLink> */}
                     {actor.slice(0, 10).map((actor) => (
-                        <li key={actor.id} className="li-actor">
+                        <li key={actor.id} className="li-actor cursor-pointer" onClick={() => handleActorClick(actor.id)}>
                             <img
                                 className="imgs-actors"
                                 src={`https://image.tmdb.org/t/p/original/${actor.profile_path}`}

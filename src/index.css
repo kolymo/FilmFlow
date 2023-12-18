@@ -2,10 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+/* body {
     background-image: url('background.gif');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
+} */
+
+body {
+    background-color: antiquewhite;
 }

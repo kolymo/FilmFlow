@@ -110,7 +110,7 @@ const MovieDetails = () => {
                                 </span>
                             </p>
                             <button className="custom-btn btn-3">
-                                <span>Bande Annonce</span>
+                                <span>Trailer</span>
                             </button>
                         </div>
                     </div>

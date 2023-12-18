@@ -72,7 +72,7 @@
 .vote,
 .genre {
   font-size: 20px;
-  color: #1E8449; /* Replace with actual color */
+  color: darkred;
 }
 
 .realease_date,

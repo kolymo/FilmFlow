@@ -1,0 +1,50 @@
+/* Existing styles for larger screens */
+
+.actor-detail-container {
+  margin: 20px;
+  display: flex;
+}
+
+.img-actor {
+  width: 400px;
+  border-radius: 10px;
+}
+
+.actor-detail {
+  margin-left: 50px;
+}
+
+.actor-name-detail {
+  font-size: 100px;
+}
+.Biographie,
+.Lieu-de-naissance,
+.Date-de-naissance {
+  color: $color-5;
+}
+.info-actor {
+  color: $color-1;
+}
+
+@media (max-width: 400px) {
+  .actor-detail-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .img-actor {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .actor-detail {
+    margin-left: 0;
+  }
+
+  .actor-name-detail {
+    font-size: 30px;
+    text-align: center;
+    color: $color-2;
+    padding: 10px;
+  }
+}

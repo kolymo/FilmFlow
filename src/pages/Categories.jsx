@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Carousel from "../components/Carousel/Carousel";
 import { films } from "../services/FetchData";
 

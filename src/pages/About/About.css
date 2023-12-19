@@ -1,0 +1,36 @@
+.Title-apropos {
+    font-size: 70px;
+    margin-top: 50px;
+    text-align: center;
+    color: #000; /* White color */
+  }
+  
+  .Title2 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 30px;
+    color: #000; /* White color */
+  }
+  
+  .Texte {
+    font-size: 20px;
+    text-align: justify;
+    margin: 50px 60px 100px 60px;
+    color: #000; /* White color */
+  }
+  
+  @media (max-width: 400px) {
+    .Title-apropos {
+      font-size: 30px;
+    }
+    .Title2 {
+      font-size: 15px;
+    }
+    .Texte {
+      font-size: 14px;
+      text-align: justify;
+      margin: 50px 10px 100px 10px;
+      color: #000; /* White color */
+    }
+  }
+  

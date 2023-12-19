@@ -27,7 +27,7 @@ async function FetchData(options) {
     if ("genre" in options) url += "&with_genres=" + options.genre;
 
     // Debug
-    console.log(url);
+    // console.log(url);
 
     try {
         const response = await fetch(url);

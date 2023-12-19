@@ -1,4 +1,11 @@
 import React from "react";
+import {
+    BrowserRouter as Router,
+    NavLink,
+    Routes,
+    Route,
+    Navigate,
+} from "react-router-dom";
 
 export default function Footer() {
     return (
@@ -13,11 +20,11 @@ export default function Footer() {
                 </span>
                 <ul className="flex flex-wrap items-center mt-3 text-sm font-medium sm:mt-0">
                     <li>
-                        <a href="/" className="mr-4 md:mr-6 hover:text-red-500">
-                            About
-                        </a>
+                        <NavLink to="./about">
+                            <p className="mr-4 md:mr-6 hover:text-red-500">About</p>
+                        </NavLink>
                     </li>
-                    <li>
+                    {/* <li>
                         <a href="/" className="mr-4 md:mr-6 hover:text-red-500">
                             Privacy Policy
                         </a>
@@ -31,7 +38,7 @@ export default function Footer() {
                         <a href="/" className="hover:text-red-500">
                             Contact
                         </a>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
         </footer>

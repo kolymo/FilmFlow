@@ -8,8 +8,6 @@
 }
 
 .container2 {
-  width: 100%;
-  margin: 0 auto;
   display: flex;
   filter: blur();
   margin-top: -50%;
@@ -189,8 +187,8 @@
 
 @media (max-width: 400px) {
   .backdrop {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     filter: blur() brightness();
     object-position: top;
   }

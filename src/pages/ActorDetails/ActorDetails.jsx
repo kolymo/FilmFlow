@@ -18,22 +18,22 @@ const ActorDetails = () => {
         <div className="actor-detail-container container mx-auto">
             <img
                 className="img-actor"
-                src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`}
+                src={actor.profile_path ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}` : 'actor_placeholder.png'}
                 alt={actor.name}
             />
             <div className="actor-detail">
-                <h1 className="actor-name-detail">{actor.name}</h1>
+                <h1 className="actor-name-detail">{actor.name ? actor.name : '?'}</h1>
                 <p className="Date-de-naissance">
-                    Date de naissance:{" "}
-                    <span className="info-actor">{actor.birthday}</span>
+                    Birth date:{" "}
+                    <span className="info-actor">{actor.birthday ? actor.birthday : '?'}</span>
                 </p>
                 <p className="Lieu-de-naissance">
-                    Lieu de naissance:{" "}
-                    <span className="info-actor">{actor.place_of_birth}</span>
+                    Birth place:{" "}
+                    <span className="info-actor">{actor.place_of_birth ? actor.place_of_birth : '?'}</span>
                 </p>
                 <p className="Biographie">
-                    Biographie:{" "}
-                    <span className="info-actor">{actor.biography}</span>
+                    Biography:{" "}
+                    <span className="info-actor">{actor.biography ? actor.biography : '?'}</span>
                 </p>
             </div>
         </div>

@@ -3,7 +3,7 @@ import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import About from "./pages/About";
+import About from "./pages/About/About";
 import Categories from "./pages/Categories";
 import Error from "./pages/Error";
 import Loading from "./components/Loading/Loading";

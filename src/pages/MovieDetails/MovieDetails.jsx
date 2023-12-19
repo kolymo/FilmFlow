@@ -9,6 +9,7 @@ import Carousel from "../../components/Carousel/Carousel";
 
 const MovieDetails = () => {
     const [movie, setMovie] = useState([]);
+    const [trailer, setTrailer] = useState('');
     const [actor, setActor] = useState([]);
 
     const navigate = useNavigate();
@@ -20,9 +21,13 @@ const MovieDetails = () => {
         films.credits(id).then((data) => setActor(data.cast));
     }, [id]);
 
+    useEffect(() => {
+        films.videos(id).then(data => data.results[0].key ? setTrailer(data.results[0]) : '');
+    }, [movie])
+
     /* useEffect(() => {
-        console.log(actor);
-    }, [actor]); */
+        console.log(trailer);
+    }, [trailer]); */
 
     function convertirTempsEnHMN(tempsEnMinutes) {
         const heures = Math.floor(tempsEnMinutes / 60);
@@ -39,7 +44,7 @@ const MovieDetails = () => {
         <div>
             <div>
                 <img
-                    className="backdrop"
+                    className="backdrop overflow-hidden"
                     src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
                     alt={movie.title}
                 />
@@ -48,7 +53,7 @@ const MovieDetails = () => {
                     <div className="Affiche">
                         <img
                             className="im-film"
-                            src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                             alt={movie.title}
                         />
                     </div>
@@ -66,13 +71,13 @@ const MovieDetails = () => {
                                 </span>
                             </p>
                             <p className="date">
-                                Date de sortie:{" "}
+                                Release Date:{" "}
                                 <span className="realease_date">
                                     {movie.release_date}
                                 </span>{" "}
                             </p>
                             <p className="temps">
-                                Temps :{" "}
+                                Runtime :{" "}
                                 <span className="vote_count">
                                     {convertirTempsEnHMN(movie.runtime)}
                                 </span>
@@ -80,7 +85,7 @@ const MovieDetails = () => {
                             <p className="vote">
                                 Vote :{" "}
                                 <span className="vote_count">
-                                    {movie.vote_average} %
+                                    {Math.floor(movie.vote_average * 10)} %
                                 </span>
                             </p>
 
@@ -92,24 +97,24 @@ const MovieDetails = () => {
                                 </span>
                             </p>
                             <button className="custom-btn btn-3">
-                                <span>Trailer</span>
+                                <span><a href={`https://youtube.com/watch?v=` + trailer.key}>Trailer</a></span>
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="actors-container">
-                <h2 className="Acteurs">Acteurs:</h2>
+            <div className="actors-container container mx-auto">
+                <h2 className="Acteurs font-semibold px-2 py-2 my-2 bg-slate-700 rounded inline-block text-white">Acteurs:</h2>
                 <ul className="ul-actor">
                 {/* <NavLink to="/" className={({ isActive }) => `hover:text-red-500 ${isActive ? activeClassName : ''}`}>Home</NavLink> */}
                     {actor.slice(0, 10).map((actor) => (
                         <li key={actor.id} className="li-actor cursor-pointer" onClick={() => handleActorClick(actor.id)}>
                             <img
-                                className="imgs-actors"
-                                src={`https://image.tmdb.org/t/p/original/${actor.profile_path}`}
+                                className="imgs-actors w-48"
+                                src={actor.profile_path ? `https://image.tmdb.org/t/p/original/${actor.profile_path}` : 'actor_placeholder.png'}
                                 alt={actor.name}
                             />
-                            <p className="actors_names">{actor.name}</p>
+                            <p className="actors_names text-white ">{actor.name}</p>
                         </li>
                     ))}
                 </ul>
